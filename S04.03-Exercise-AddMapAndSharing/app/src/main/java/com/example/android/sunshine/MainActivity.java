@@ -215,14 +215,21 @@ public class MainActivity extends AppCompatActivity implements ForecastAdapterOn
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.action_refresh) {
-            mForecastAdapter.setWeatherData(null);
-            loadWeatherData();
-            return true;
+        switch (id){
+            case R.id.action_refresh:
+                mForecastAdapter.setWeatherData(null);
+                loadWeatherData();
+                return true;
+            // complete (2) Launch the map when the map menu item is clicked
+            case R.id.action_map:
+                Uri uri = Uri.parse("geo:0,0");
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(uri);
+                if (i.resolveActivity(getPackageManager()) != null) {
+                    startActivity(i);
+                }
+            default:
+                return super.onOptionsItemSelected(item);
         }
-
-        // TODO (2) Launch the map when the map menu item is clicked
-
-        return super.onOptionsItemSelected(item);
     }
 }
