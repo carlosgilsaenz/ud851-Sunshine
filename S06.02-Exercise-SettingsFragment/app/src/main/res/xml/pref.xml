@@ -2,12 +2,14 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <EditTextPreference
-        android:key="pref_edit_text"
-        android:title="list" />
+        android:key="@string/pref_location_key"
+        android:title="@string/pref_location_label"
+        android:defaultValue="@string/pref_location_default"/>
     <ListPreference
-        app:key="psref_list"
+        app:key="@string/pref_units_key"
         android:title="list"
-        android:entries=""
-        android:entryValues=""
+        android:entries="@array/pref_units_options"
+        android:entryValues="@array/pref_units_values"
+        android:defaultValue="@string/pref_units_metric"
         />
 </PreferenceScreen>
