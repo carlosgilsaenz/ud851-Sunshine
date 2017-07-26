@@ -49,6 +49,15 @@ public final class SunshinePreferences {
         editor.putLong(PREF_COORD_LONG, Double.doubleToRawLongBits(lon));
         editor.apply();
     }
+    public static boolean isNotificationEnabled(Context context){
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+
+        String keyForNotification = context.getString(R.string.pref_enable_notifications_key);
+        String defaultLocation = context.getString(R.string.pref_location_default);
+        boolean defSet = context.getResources().getBoolean(R.bool.show_notifications_default);
+
+        return sp.getBoolean(keyForNotification,defSet);
+    }
 
     /**
      * Resets the location coordinates stores in SharedPreferences.
