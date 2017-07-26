@@ -14,28 +14,95 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<!-- TODO (2) Remove the old layout -->
-<!-- TODO (3) Use ConstraintLayout to create the new list item layout -->
-<LinearLayout
+<!-- complete (2) Remove the old layout -->
+<!-- complete (3) Use ConstraintLayout to create the new list item layout -->
+
+
+<android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- This TextView holds the weather data for one particular day in the forecast -->
+    <ImageView
+        android:id="@+id/image_weather_icon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        tools:src="@drawable/art_clouds"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp" />
+
     <TextView
-        android:id="@+id/tv_weather_data"
-        style="@style/TextAppearance.AppCompat.Large"
+        android:id="@+id/text_weather_day"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="16dp"/>
+        android:lines="1"
+        tools:text="Today"
+        app:layout_constraintLeft_toRightOf="@+id/image_weather_icon"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintTop_toTopOf="@+id/image_weather_icon"
+        android:layout_marginTop="8dp" />
+    <TextView
+        android:id="@+id/text_weather_condition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:lines="1"
+        android:layout_marginTop="2dp"
+        tools:text="Cloudy"
+        app:layout_constraintTop_toBottomOf="@+id/text_weather_day"
+        app:layout_constraintLeft_toLeftOf="@+id/text_weather_day" />
 
-    <!-- This View serves as a visual divider between list items -->
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:background="#dadada"/>
+    <TextView
+        android:id="@+id/text_weather_high"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        tools:text="18\u00B0"
+        android:layout_marginRight="24dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/image_weather_icon"
+        android:layout_marginBottom="8dp" />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/text_weather_low"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        tools:text="13\u00B0"
+        app:layout_constraintRight_toLeftOf="@+id/text_weather_high"
+        android:layout_marginRight="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/image_weather_icon"
+        android:layout_marginBottom="8dp" />
+
+</android.support.constraint.ConstraintLayout>
+
+<!--<LinearLayout-->
+    <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="vertical">-->
+
+    <!--&lt;!&ndash; This TextView holds the weather data for one particular day in the forecast &ndash;&gt;-->
+    <!--<TextView-->
+        <!--android:id="@+id/tv_weather_data"-->
+        <!--style="@style/TextAppearance.AppCompat.Large"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:padding="16dp"/>-->
+
+    <!--&lt;!&ndash; This View serves as a visual divider between list items &ndash;&gt;-->
+    <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="1dp"-->
+        <!--android:layout_marginLeft="8dp"-->
+        <!--android:layout_marginRight="8dp"-->
+        <!--android:background="#dadada"/>-->
+
+<!--</LinearLayout>-->
